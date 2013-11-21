@@ -1,0 +1,38 @@
+#
+# Color
+#
+mono  message    bold
+color message    white    red
+color error      brightyellow   red
+color index      brightwhite    black ~p
+color index      white        black '!~t skalyanasundaram@novell.com'
+color index      brightgreen        black ~U
+color index     red        black ~D
+color indicator  white          red
+color tree       brightmagenta  black
+color signature  red            black
+color attachment brightyellow   red
+color search     brightyellow   red
+color tilde      brightmagenta  black
+color markers    brightmagenta  black
+# #color bold       brightblack    default
+# #color underline  green          default
+color quoted     blue           black
+color quoted1    magenta        black
+color quoted2    red            black
+color quoted3    green          black
+color quoted4    cyan           black
+color quoted5    blue           black
+color quoted6    magenta        black
+color quoted7    red            black
+color quoted8    green          black
+color quoted9    cyan           black
+color hdrdefault brightred      black
+color header     brightmagenta  black  "^(from):"
+color header     brightblue     black  "^(subject):"
+#color header     default        default  "[ \t]+[^:]*$”
+color body       brightcyan     black "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z@0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:])?"
+color body       brightcyan     black  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+color body       red            black  "(^| )\\*[-[:alnum:]*]+\\*[,.?]?[ \n]"
+# Command formats for gpg.
+

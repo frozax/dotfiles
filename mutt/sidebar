@@ -1,0 +1,8 @@
+set sidebar_width=30
+set sidebar_visible=yes
+set sidebar_delim="|"
+#set sidebar_folderindent=yes
+color sidebar_new yellow default
+bind index,pager j   sidebar-next
+bind index,pager k   sidebar-prev
+bind index,pager l   sidebar-open
