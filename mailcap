@@ -1,0 +1,3 @@
+#text/html; lynx %s; nametemplate=%s.html
+#text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
+w3m -I %{charset} -T text/html -dump; copiousoutput
