@@ -15,6 +15,7 @@ setopt prompt_subst
 mail_prompt(){
     MAILFG=`/home/francois/scripts/get_nb_mails.sh frozax`
     MAILLP=`/home/francois/scripts/get_nb_mails.sh laposte`
+    NBTODO=`grep -ir 'subject: todo' '/home/francois/Mails/gffree/INBOX' | wc -l`
 
     if [ $MAILFG -eq 0 ]
     then
@@ -29,15 +30,28 @@ mail_prompt(){
     then
         MAILLP=""
     else
-        MAILLP="%B%{$fg[magenta]%}$MAILLP%{$reset_color%}%b"
+        MAILLP="$SEP%B%{$fg[magenta]%}$MAILLP%{$reset_color%}%b"
     fi
 
-    MAILALL=$MAILFG$SEP$MAILLP
+    if [ $NBTODO -eq 0 ]
+    then
+        NBTODO=""
+    else
+        if [ $NBTODO -eq 1 ]
+        then
+            NBTODO="TODO"
+        else
+            NBTODO="TODOx$NBTODO"
+        fi
+        NBTODO="[%B$NBTODO%b]"
+    fi
+
+    MAILALL=$MAILFG$MAILLP
     if [ "$MAILALL" != "" ]
     then
         MAILALL="("$MAILALL") "
     fi
-    echo $MAILALL
+    echo "$MAILALL$NBTODO"
 }
 
 PROMPT='$(mail_prompt)%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[red]%}%30<..<%~%<<%{$reset_color%}%(!.#.$) '

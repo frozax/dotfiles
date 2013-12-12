@@ -8,6 +8,7 @@ color index      brightwhite    black ~p
 color index      white        black '!~t skalyanasundaram@novell.com'
 color index      brightgreen        black ~U
 color index     red        black ~D
+color index brightyellow   black "~F"
 color indicator  white          red
 color tree       brightmagenta  black
 color signature  red            black

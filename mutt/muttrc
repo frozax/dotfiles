@@ -2,25 +2,23 @@
 set editor="vim"
 auto_view text/html
 
+alias todo guibert.francois@free.fr
+set realname="Francois Guibert"
+
 set mbox_type=Maildir
 set folder=/home/francois/Mails
 source "~/.mutt/offlineimap.mailboxes"
 set spoolfile="+frozax/INBOX"
 unset mark_old
+set delete=yes
+set recall=ask-no
 
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
+set index_format="%4C %Z %{%b %d %H:%M}  %-18.18L (%?l?%4l&%4c?) %s %> %?X?%X?"
+
 source "~/.mutt/colors_dark"
 source "~/.mutt/sidebar"
+source "~/.mutt/folder_hooks"
 
-
-
-#source "~/.mutt/account.frozax"
-#macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.frozax<enter><change-folder>!<enter>'
-#macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.laposte<enter><change-folder>!<enter>'
-#macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.gf.free<enter><change-folder>!<enter>'
-#macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/account.fg.free<enter><change-folder>!<enter>'
-
-#set header_cache = "/home/francois/.mutt/cache"
-#set message_cachedir = "/home/francois/.mutt/cache"
