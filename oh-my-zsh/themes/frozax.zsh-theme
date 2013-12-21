@@ -57,8 +57,12 @@ mail_prompt(){
 PROMPT='$(mail_prompt)%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[red]%}%30<..<%~%<<%{$reset_color%}%(!.#.$) '
 RPROMPT='%{$fg[green]%}[%D{%b %d, }%*]%{$reset_color%}$(git_prompt_info)'
 
+
+# history tweaks
 bindkey 'OA' history-beginning-search-backward
 bindkey 'OB' history-beginning-search-forward
+setopt no_share_history
+unsetopt share_history
 
 autoload up-line-or-beginning-search
 autoload down-line-or-beginning-search

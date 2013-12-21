@@ -1,0 +1,4 @@
+folder-hook 'fgfree' source ~/.mutt/account.fgfree
+folder-hook 'gffree' source ~/.mutt/account.gffree
+folder-hook 'frozax' source ~/.mutt/account.frozax
+folder-hook 'laposte' source ~/.mutt/account.laposte

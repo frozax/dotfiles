@@ -9,7 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # list of files/folders to symlink in homedir
-files="vimrc vim zshrc oh-my-zsh mutt offlineimaprc tmux.conf mailcap"
+files="vimrc vim zshrc oh-my-zsh mutt offlineimaprc tmux.conf mailcap motion.conf"
 
 ##########
 
