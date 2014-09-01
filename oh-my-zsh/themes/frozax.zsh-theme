@@ -15,7 +15,7 @@ setopt prompt_subst
 mail_prompt(){
     MAILFG=`/home/francois/scripts/get_nb_mails.sh frozax`
     MAILLP=`/home/francois/scripts/get_nb_mails.sh laposte`
-    NBTODO=`grep -ir 'subject: todo' '/home/francois/Mails/gffree/INBOX' | wc -l`
+    NBTODO=`grep -ir 'subject: .*todo' '/home/francois/Mails/gffree/INBOX' | wc -l`
 
     if [ $MAILFG -eq 0 ]
     then
@@ -56,6 +56,7 @@ mail_prompt(){
 
 PROMPT='$(mail_prompt)%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[red]%}%30<..<%~%<<%{$reset_color%}%(!.#.$) '
 RPROMPT='%{$fg[green]%}[%D{%b %d, }%*]%{$reset_color%}$(git_prompt_info)'
+ZLE_RPROMPT_INDENT=0
 
 
 # history tweaks

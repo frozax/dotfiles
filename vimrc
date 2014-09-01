@@ -1,24 +1,92 @@
 set nocompatible
 filetype off
 
+set <F3>=<C-c>g
+set mouse=a
+if &term =~ '^screen'
+     " tmux knows the extended mouse mode
+     set ttymouse=xterm2
+endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim'
-
-map <F2> :NERDTreeToggle<CR>
-
-set mouse=a
 set hlsearch
 set ruler
 set showcmd
 set incsearch
-"
+set scrolloff=1
+set ic
+
+nnoremap S "_diwP
+nnoremap <Del> "_x
+
+source ~/.vim/search
+" hi clear CursorLine
+" augroup CLClear
+"     autocmd! ColorScheme * hi clear CursorLine
+" augroup END
+" 
+" hi CursorLineNR cterm=bold
+" augroup CLNRSet
+"     autocmd! ColorScheme * hi CursorLineNR cterm=bold
+" augroup END
+" 
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+" The bundles you install will be listed here
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'kshenoy/vim-signature'
+Bundle 'tpope/vim-fugitive'
+Bundle 'nathanaelkane/vim-indent-guides'
+filetype plugin indent on
+
+set textwidth=0
+set wrapmargin=0
+set switchbuf+=usetab,newtab
+
+let g:jedi#auto_initialization = 1
+let g:pymode_lint_ignore = "E501,E121"
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=darkgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_start_level = 2
+
+let g:ackhighlight = 1
+
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python set nowrap
+augroup END
+
+" taglist
+nnoremap <silent> <F12> :TlistOpen<CR>
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Process_File_Always = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_WinWidth = 40
+let Tlist_Compact_Format = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Auto_Update = 1
+let Tlist_Display_Prototype = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+
+
+" Powerline setup
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set laststatus=2
+
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeQuitOnOpen = 1
 " Python-mode
 " Activate rope
 " Keys:
@@ -28,12 +96,11 @@ set incsearch
 " <Ctrl-c>d     Rope show documentation
 " <Ctrl-c>f     Rope find occurrences
 " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[            Jump on previous class or function (normal, visual, operator
-" ]]            Jump on next class or function (normal, visual, operator
-" [M            Jump on previous class or method (normal, visual, operator
-" ]M            Jump on next class or method (normal, visual, operator
+" [[            Jump on previous class or function (normal, visual, operator modes)
+" ]]            Jump on next class or function (normal, visual, operator modes)
+" [M            Jump on previous class or method (normal, visual, operator modes)
+" ]M            Jump on next class or method (normal, visual, operator modes)
 let g:pymode_rope = 0
-
 " Documentation
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
@@ -43,7 +110,6 @@ let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
 " Auto check on save
 let g:pymode_lint_write = 1
-let g:pymode_lint_ignore = "E501"
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -61,16 +127,16 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+" automatically change window's cwd to file's dir
+" set autochdir
 
-" The bundles you install will be listed here
-
-filetype plugin indent on
-
-syntax on
-set modeline
-set tabstop=8
-set expandtab
+" I'm prefer spaces to tabs
+set tabstop=4
 set shiftwidth=4
-set softtabstop=4
-filetype indent on
+set expandtab
+"
+" more subtle popup colors
+if has ('gui_running')
+    highlight Pmenu guibg=#cccccc gui=bold
+endif
 

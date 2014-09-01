@@ -12,10 +12,11 @@
 #  terminal's default foreground colour.  Abbreviations
 #  are allowed; b or bl selects black.  
 #
-
+DISABLE_AUTO_UPDATE="true"
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="frozax"
 plugins=(git command-not-found)
 source $ZSH/oh-my-zsh.sh
+ZLE_RPROMPT_INDENT=0
 
-export EDITOR='gedit'
+export EDITOR='vim'

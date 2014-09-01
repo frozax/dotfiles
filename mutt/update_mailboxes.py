@@ -10,7 +10,8 @@ from_list = map(lambda x: x[:-1], raw_list)
 def keep_this_mailbox(x):
     if x == "":
         return False
-    forbidden_words = ("quarantaine", "trash", "draft", ".sent", "/sent", "corbeille", "archives")
+    forbidden_words = ("quarantaine", "trash", "draft", "corbeille", "archives")
+    #forbidden_words = ("quarantaine", "trash", "draft", ".sent", "/sent", "corbeille", "archives")
     if any(forbidden_word in x.lower() for forbidden_word in forbidden_words):
         return False
     folder = os.path.join(os.path.expanduser("~/Mails"), x[2:-1])
