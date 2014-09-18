@@ -2,9 +2,7 @@
 set editor="vim"
 auto_view text/html
 
-alias todo guibert.francois@free.fr
-set realname="Francois Guibert"
-
+source "~/.mutt/mutt_perso"
 set mbox_type=Maildir
 set folder=/home/francois/Mails
 source "~/.mutt/offlineimap.mailboxes"
@@ -12,6 +10,7 @@ set spoolfile="+frozax/INBOX"
 unset mark_old
 set delete=yes
 set recall=ask-no
+set copy=yes
 
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"

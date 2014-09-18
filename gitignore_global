@@ -1,0 +1,22 @@
+*.pyc
+.project
+.pydevproject
+*.log
+*~
+*.swp
+midas_cfg.json
+*.orig
+*.swo
+
+# source control
+.bzr
+.bzrignore
+
+#eclipse
+.settings
+.classpath
+
+integration-test/target
+
+# Scripts generated files
+*.diff

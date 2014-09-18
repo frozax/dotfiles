@@ -1,0 +1,16 @@
+let g:EasyGrepRecursive = 1
+
+function! s:FindInFiles(args)
+	if empty(a:args)
+		echo "No Args"
+		let cmd = "Grep " . expand("<cword>")
+		execute cmd
+	else
+		echo "Args"
+		let cmd = "Grep " . a:args
+		execute cmd
+	end
+endfunction
+
+command! -bang -nargs=* -complete=file FindInFiles call s:FindInFiles(<q-args>)
+map <C-F> :FindInFiles<space>

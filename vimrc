@@ -15,6 +15,7 @@ set showcmd
 set incsearch
 set scrolloff=1
 set ic
+set cursorline
 
 nnoremap S "_diwP
 nnoremap <Del> "_x

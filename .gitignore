@@ -1,0 +1,8 @@
+oh-my-zsh
+offlineimaprc
+mutt/account.*
+mutt/cache
+mutt/offlineimap.*
+mutt/mutt_perso
+
+vim/bundle
